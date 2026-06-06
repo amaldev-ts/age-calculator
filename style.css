@@ -1,0 +1,592 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    padding: 20px;
+    color: #e2e8f0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════
+   REAL EMOJI (Keeps natural color)
+   ═══════════════════════════════════════════════ */
+.real-emoji {
+    -webkit-text-fill-color: initial !important;
+    background: none !important;
+    background-clip: initial !important;
+    -webkit-background-clip: initial !important;
+    color: initial !important;
+}
+
+/* ═══════════════════════════════════════════════
+   PINK GRADIENT TEXT
+   ═══════════════════════════════════════════════ */
+.title-text {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════ */
+.header {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.header h1 .real-emoji {
+    font-size: 3rem;
+}
+
+.header p {
+    color: #a8b2d8;
+    font-size: 1.1rem;
+}
+
+/* ═══════════════════════════════════════════════
+   INPUT SECTION
+   ═══════════════════════════════════════════════ */
+.input-section {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #a8b2d8;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: #e2e8f0;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #f093fb;
+    background: rgba(255,255,255,0.12);
+}
+
+.input-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.calculate-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 1px;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);
+}
+
+/* ═══════════════════════════════════════════════
+   CARDS
+   ═══════════════════════════════════════════════ */
+.age-card,
+.stats-card,
+.zodiac-card,
+.countdown-card,
+.special-card,
+.history-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════
+   CARD HEADINGS
+   ═══════════════════════════════════════════════ */
+.stats-card h2,
+.zodiac-card h2,
+.countdown-card h2,
+.special-card h2,
+.history-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stats-card h2 .real-emoji,
+.zodiac-card h2 .real-emoji,
+.countdown-card h2 .real-emoji,
+.special-card h2 .real-emoji,
+.history-card h2 .real-emoji {
+    font-size: 1.6rem;
+}
+
+.subtitle-text {
+    color: #a8b2d8;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+/* ═══════════════════════════════════════════════
+   AGE CARD
+   ═══════════════════════════════════════════════ */
+.greeting {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #f093fb;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.age-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.age-box {
+    background: linear-gradient(135deg, rgba(240,147,251,0.2), rgba(245,87,108,0.2));
+    border: 2px solid rgba(240,147,251,0.4);
+    border-radius: 16px;
+    padding: 20px 35px;
+    text-align: center;
+    min-width: 130px;
+}
+
+.age-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.age-label {
+    color: #a8b2d8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════════
+   LIVE TIMER
+   ═══════════════════════════════════════════════ */
+.live-timer {
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
+.live-timer h3 {
+    color: #f5576c;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.live-display {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.live-box {
+    background: linear-gradient(135deg, rgba(245,87,108,0.15), rgba(240,147,251,0.15));
+    border: 1px solid rgba(245,87,108,0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-align: center;
+    min-width: 90px;
+}
+
+.live-box span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f5576c;
+}
+
+.live-box label {
+    color: #a8b2d8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.born-day-text {
+    color: #a8b2d8;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.born-day-text strong {
+    color: #f093fb;
+}
+
+/* ═══════════════════════════════════════════════
+   BODY STATISTICS GRID
+   ═══════════════════════════════════════════════ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.08);
+}
+
+.stat-emoji {
+    font-size: 2.5rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    color: #a8b2d8;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.stat-info strong {
+    font-size: 1.3rem;
+    color: #f093fb;
+    font-weight: bold;
+    word-break: break-word;
+}
+
+.stat-info small {
+    color: #6b7280;
+    font-size: 0.72rem;
+}
+
+/* ═══════════════════════════════════════════════
+   ZODIAC CARD
+   ═══════════════════════════════════════════════ */
+.zodiac-display {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.zodiac-icon {
+    font-size: 6rem;
+    min-width: 100px;
+    text-align: center;
+}
+
+.zodiac-info h3 {
+    font-size: 1.8rem;
+    color: #f093fb;
+    margin-bottom: 5px;
+}
+
+.zodiac-info p {
+    color: #a8b2d8;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.zodiac-traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.trait-tag {
+    background: linear-gradient(135deg, rgba(240,147,251,0.2), rgba(245,87,108,0.2));
+    border: 1px solid rgba(240,147,251,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    color: #f093fb;
+}
+
+.zodiac-extra {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.zodiac-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.zodiac-item span {
+    color: #a8b2d8;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.zodiac-item strong {
+    color: #f5576c;
+    font-size: 1rem;
+}
+
+/* ═══════════════════════════════════════════════
+   COUNTDOWN
+   ═══════════════════════════════════════════════ */
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0 15px;
+}
+
+.countdown-box {
+    background: linear-gradient(135deg, rgba(245,87,108,0.2), rgba(240,147,251,0.2));
+    border: 2px solid rgba(245,87,108,0.4);
+    border-radius: 16px;
+    padding: 20px 30px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.countdown-box span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f5576c;
+}
+
+.countdown-box label {
+    color: #a8b2d8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.next-bday-date {
+    text-align: center;
+    color: #f093fb;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.turning-age {
+    text-align: center;
+    color: #f5576c;
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════
+   SPECIAL FACTS
+   ═══════════════════════════════════════════════ */
+.special-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.special-item {
+    background: rgba(255,255,255,0.05);
+    border-left: 4px solid #f093fb;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.special-item h4 {
+    color: #f093fb;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.special-item p {
+    color: #a8b2d8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════
+   BIRTHDAY TABLE
+   ═══════════════════════════════════════════════ */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+thead tr {
+    background: linear-gradient(135deg, rgba(240,147,251,0.3), rgba(245,87,108,0.3));
+    position: sticky;
+    top: 0;
+}
+
+th {
+    padding: 14px 16px;
+    text-align: left;
+    color: #f093fb;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #e2e8f0;
+}
+
+tbody tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.day-highlight {
+    color: #f093fb;
+    font-weight: bold;
+}
+
+.born-row {
+    background: rgba(240,147,251,0.12) !important;
+}
+
+.last-row {
+    background: rgba(245,87,108,0.12) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════ */
+.table-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border-radius: 10px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .header h1 { font-size: 2rem; }
+    .header h1 .real-emoji { font-size: 2rem; }
+    .age-display { gap: 10px; }
+    .age-box { padding: 15px 25px; min-width: 90px; }
+    .age-number { font-size: 2.2rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .zodiac-extra { grid-template-columns: 1fr; }
+    .special-grid { grid-template-columns: 1fr; }
+    .countdown-box { padding: 15px 20px; min-width: 80px; }
+    .countdown-box span { font-size: 2rem; }
+    .live-box { padding: 10px 14px; min-width: 70px; }
+    .live-box span { font-size: 1.4rem; }
+}

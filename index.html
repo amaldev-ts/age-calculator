@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>
+            <span class="real-emoji">🎂</span>
+            <span class="title-text">Age Calculator</span>
+        </h1>
+        <p>Discover everything about your birthday!</p>
+    </div>
+
+    <!-- Input Section -->
+    <div class="input-section">
+        <div class="input-group">
+            <label for="birthdate">Enter Your Birth Date</label>
+            <input type="date" id="birthdate">
+        </div>
+        <div class="input-group">
+            <label for="name">Your Name (Optional)</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <button class="calculate-btn" onclick="calculate()">
+            🔍 Calculate
+        </button>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results" id="results" style="display:none;">
+
+        <!-- Age Display -->
+        <div class="age-card">
+            <div class="greeting" id="greeting"></div>
+            <div class="age-display">
+                <div class="age-box">
+                    <span class="age-number" id="years">0</span>
+                    <span class="age-label">Years</span>
+                </div>
+                <div class="age-box">
+                    <span class="age-number" id="months">0</span>
+                    <span class="age-label">Months</span>
+                </div>
+                <div class="age-box">
+                    <span class="age-number" id="days">0</span>
+                    <span class="age-label">Days</span>
+                </div>
+            </div>
+
+            <!-- Live Timer -->
+            <div class="live-timer">
+                <h3>
+                    <span class="real-emoji">⏰</span>
+                    <span>Live Age Timer</span>
+                </h3>
+                <div class="live-display">
+                    <div class="live-box">
+                        <span id="liveDays">0</span>
+                        <label>Days</label>
+                    </div>
+                    <div class="live-box">
+                        <span id="liveHours">00</span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="live-box">
+                        <span id="liveMinutes">00</span>
+                        <label>Minutes</label>
+                    </div>
+                    <div class="live-box">
+                        <span id="liveSeconds">00</span>
+                        <label>Seconds</label>
+                    </div>
+                </div>
+                <p class="born-day-text">
+                    <span class="real-emoji">📅</span>
+                    You were born on: <strong id="bornDay"></strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Body Statistics -->
+        <div class="stats-card">
+            <h2>
+                <span class="real-emoji">💪</span>
+                <span class="title-text">Your Body Statistics</span>
+            </h2>
+            <p class="subtitle-text">Amazing facts about your body since birth (Live updating!)</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-emoji">❤️</div>
+                    <div class="stat-info">
+                        <span class="stat-label">TOTAL HEARTBEATS</span>
+                        <strong id="heartbeats">0</strong>
+                        <small>~72 beats per minute</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">👁️</div>
+                    <div class="stat-info">
+                        <span class="stat-label">TOTAL EYE BLINKS</span>
+                        <strong id="eyeBlinks">0</strong>
+                        <small>~15-20 blinks per minute</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">🫁</div>
+                    <div class="stat-info">
+                        <span class="stat-label">TOTAL BREATHS TAKEN</span>
+                        <strong id="breaths">0</strong>
+                        <small>~15 breaths per minute</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">😴</div>
+                    <div class="stat-info">
+                        <span class="stat-label">DAYS SPENT SLEEPING</span>
+                        <strong id="sleptDays">0</strong>
+                        <small>~8 hours per day</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">🍽️</div>
+                    <div class="stat-info">
+                        <span class="stat-label">MEALS EATEN</span>
+                        <strong id="meals">0</strong>
+                        <small>~3 meals per day</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">🚶</div>
+                    <div class="stat-info">
+                        <span class="stat-label">STEPS WALKED</span>
+                        <strong id="steps">0</strong>
+                        <small>~8,000 steps per day</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">😂</div>
+                    <div class="stat-info">
+                        <span class="stat-label">TIMES YOU LAUGHED</span>
+                        <strong id="laughs">0</strong>
+                        <small>~15 times per day</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">💤</div>
+                    <div class="stat-info">
+                        <span class="stat-label">DREAMS YOU HAD</span>
+                        <strong id="dreams">0</strong>
+                        <small>~4-6 dreams per night</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">🩸</div>
+                    <div class="stat-info">
+                        <span class="stat-label">BLOOD PUMPED (LITERS)</span>
+                        <strong id="bloodPumped">0</strong>
+                        <small>~7,571 liters per day</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">💇</div>
+                    <div class="stat-info">
+                        <span class="stat-label">HAIR GROWTH (CM)</span>
+                        <strong id="hairGrowth">0</strong>
+                        <small>~15 cm per year</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">💅</div>
+                    <div class="stat-info">
+                        <span class="stat-label">NAIL GROWTH (CM)</span>
+                        <strong id="nailGrowth">0</strong>
+                        <small>~3.5 cm per year</small>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-emoji">🧠</div>
+                    <div class="stat-info">
+                        <span class="stat-label">THOUGHTS YOU HAD</span>
+                        <strong id="thoughts">0</strong>
+                        <small>~6,200 thoughts per day</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zodiac Section -->
+        <div class="zodiac-card">
+            <h2>
+                <span class="real-emoji">⭐</span>
+                <span class="title-text">Your Zodiac Sign</span>
+            </h2>
+            <div class="zodiac-display">
+                <div class="zodiac-icon" id="zodiacIcon"></div>
+                <div class="zodiac-info">
+                    <h3 id="zodiacName"></h3>
+                    <p id="zodiacDates"></p>
+                    <p id="zodiacDesc"></p>
+                    <div class="zodiac-traits" id="zodiacTraits"></div>
+                </div>
+            </div>
+            <div class="zodiac-extra">
+                <div class="zodiac-item">
+                    <span><span class="real-emoji">🔥</span> Element</span>
+                    <strong id="zodiacElement"></strong>
+                </div>
+                <div class="zodiac-item">
+                    <span><span class="real-emoji">🪐</span> Ruling Planet</span>
+                    <strong id="zodiacPlanet"></strong>
+                </div>
+                <div class="zodiac-item">
+                    <span><span class="real-emoji">🍀</span> Lucky Number</span>
+                    <strong id="zodiacLucky"></strong>
+                </div>
+                <div class="zodiac-item">
+                    <span><span class="real-emoji">💎</span> Birthstone</span>
+                    <strong id="zodiacStone"></strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Birthday Countdown -->
+        <div class="countdown-card">
+            <h2>
+                <span class="real-emoji">🎉</span>
+                <span class="title-text">Next Birthday Countdown</span>
+            </h2>
+            <div class="countdown-display">
+                <div class="countdown-box">
+                    <span id="cdDays">0</span>
+                    <label>Days</label>
+                </div>
+                <div class="countdown-box">
+                    <span id="cdHours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="countdown-box">
+                    <span id="cdMinutes">00</span>
+                    <label>Minutes</label>
+                </div>
+                <div class="countdown-box">
+                    <span id="cdSeconds">00</span>
+                    <label>Seconds</label>
+                </div>
+            </div>
+            <p id="nextBirthdayDate" class="next-bday-date"></p>
+            <p id="turningAge" class="turning-age"></p>
+        </div>
+
+        <!-- Special Day Info -->
+        <div class="special-card">
+            <h2>
+                <span class="real-emoji">🌟</span>
+                <span class="title-text">Your Birthday's Special Facts</span>
+            </h2>
+            <div id="specialFacts"></div>
+        </div>
+
+        <!-- Birthday History Table -->
+        <div class="history-card">
+            <h2>
+                <span class="real-emoji">📅</span>
+                <span class="title-text">All Your Birthdays</span>
+            </h2>
+            <p class="subtitle-text">Every birthday from birth till today with day names</p>
+            <div class="table-wrapper">
+                <table id="birthdayTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Age</th>
+                            <th>Date</th>
+                            <th>Day</th>
+                        </tr>
+                    </thead>
+                    <tbody id="birthdayTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
