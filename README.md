@@ -128,24 +128,7 @@ Open browser at: `http://localhost:8080`
 
 ---
 
-## 📸 Features Preview
 
-### Main Page
-Beautiful dark theme with pink gradient and modern glassmorphism design
-
-### Live Body Statistics
-12 amazing body stats updating in real-time every second
-
-### Zodiac Information
-Detailed zodiac sign with personality traits, element, planet, lucky numbers and birthstone
-
-### Birthday Countdown
-Live countdown timer to your next birthday with turning age info
-
-### Special Facts
-Historical events, birthstone, birth flower, Chinese zodiac and more!
-
----
 
 ## 🌟 Key Highlights
 
